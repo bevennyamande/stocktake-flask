@@ -1,8 +1,6 @@
 '''
 This script is used to add stock take counters.
 '''
-
-
 from models import *
 
 
