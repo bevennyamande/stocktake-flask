@@ -54,9 +54,9 @@ class Product(BaseModel):
 # This model is used to hold all product counts. One product may have many count
 # occurances. They are added up to get a total for the report.
 class ProductCount(BaseModel):
-    count = CharField(unique=True)
-    product = ForeignKeyField(Product)
-    counted_by = ForeignKeyField(User)
+    count = IntegerField()
+    product = ForeignKeyField(Product, related_name='product')
+    counted_by = ForeignKeyField(User, related_name='user')
     created = DateTimeField(default=datetime.datetime.now)
 
     class Meta:

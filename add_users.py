@@ -30,4 +30,4 @@ for line in lines:
         user = User.create(username=username, password=password,
             is_admin=is_admin)
 
-        print("Created user : {}".format(user.username))
+        print("Created user : {} -  admin : {} ".format(user.username, admin))

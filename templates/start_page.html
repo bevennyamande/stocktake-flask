@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Products</h2>
+
+
+<table class="table">
+
+{% for product in product_list %}
+<tr>
+<td> {{ product.code }}<td>
+<td>
+      <a href="{{ url_for('product_page', product_code=product.code) }}">{{ product.name }}</a>
+</td>
+<td> {{ product.price }}<td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

@@ -30,5 +30,4 @@ for line in lines:
     except Product.DoesNotExist:
         product = Product.create(code=code, name=name, price=price)
         count = count + 1
-        print("Created product number {} : {}".format(str(count),
-                                                        product.details()))
+        print("Created {} : {}".format(str(count), product.details()))
