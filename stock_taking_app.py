@@ -153,7 +153,27 @@ def view_recent_count():
     return render_template('recent_counts.html', count_list=count_list)
 
 
-@app.route('/admin_recent_counts/')
-def admin_recent_counts():
-    count_list = ProductCount.select().limit(50)
-    return render_template('admin_recent_counts.html', count_list=count_list)
+@app.route('/user_recent_counts/<string:username>')
+def user_recent_counts(username):
+    if session['is_admin'] == 'y':
+        return admin_recent_counts(username)
+    else:
+        flash('You cannot access this page')
+        return redirect(url_for('homepage'))
+
+
+def admin_recent_counts(username=None):
+    if username == 'all':
+        count_list = ProductCount.select().limit(50)
+    else:
+        try:
+            user = User.get(User.username == username)
+        except User.DoesNotExist:
+            flash('The user does not exist')
+            return redirect(url_for('homepage'))
+        else:
+            count_list = ProductCount.select().where(
+                ProductCount.counted_by == user).limit(50)
+    enumerators = User.select()
+    return render_template('admin_recent_counts.html', enumerators=enumerators,
+        count_list=count_list, username=username)

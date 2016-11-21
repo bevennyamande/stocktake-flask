@@ -48,7 +48,7 @@ class Product(BaseModel):
 
     def details(self):
         # return a description of product
-        return self.code + ' : ' + self.name + ' - ' + str(self.price)
+        return self.code + ' : ' + self.name + ' - $' + str(self.price)
 
 
 # This model is used to hold all product counts. One product may have many count

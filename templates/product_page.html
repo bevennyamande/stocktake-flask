@@ -5,7 +5,7 @@
 </form>
 <form method="POST" action="{{ url_for('countproduct', product_code=product.code ) }}">
     {{ form.csrf_token }}
-    {{ form.counted.label }}{{ product.name }}
+    {{ form.counted.label }} {{ product.name }}
     <br>
     {{ form.counted() }}
     <input type="submit" value="Count">
