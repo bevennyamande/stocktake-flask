@@ -12,18 +12,16 @@
 <div class="container-fluid text-left">
 <div class="row content">
 <div class="col-sm-12">
-<h1><a href="{{ url_for('homepage') }}">Museyamwa Store - StockTake</a></h1>
-    {% for message in get_flashed_messages() %}
+  {% for message in get_flashed_messages() %}
     <div class="alert alert-warning" role="alert">{{ message }}</div>
   {% endfor %}
 
   <div class="metanav">
-
+	<a href="{{ url_for('homepage') }}">Museyamwa Store - StockTake</a>
   {% if not session.logged_in %}
-    <a href="{{ url_for('login') }}">log in</a>
+    | <a href="{{ url_for('login') }}">log in</a>
   {% else %}
-    <a href="{{ url_for('homepage') }}">Home </a>
-  | <a href="{{ url_for('view_recent_count') }}">Your Recent Counts </a>
+   | <a href="{{ url_for('view_recent_count') }}">Your Recent Counts </a>
   | logged in as {{ session['username'] }}
    {% if session['is_admin'] == 'y' %}
    | <a href="{{ url_for('user_recent_counts', username='all') }}">View Recent Counts for Everyone </a>
