@@ -149,7 +149,7 @@ def product_by_letter_group():
 def view_recent_count():
     user = User.get(User.username == session['username'])
     count_list = (ProductCount.select().where(ProductCount.counted_by == user)
-                 .limit(15))
+                 .limit(20))
     return render_template('recent_counts.html', count_list=count_list)
 
 
@@ -164,7 +164,7 @@ def user_recent_counts(username):
 
 def admin_recent_counts(username=None):
     if username == 'all':
-        count_list = ProductCount.select().limit(50)
+        count_list = ProductCount.select().limit(100)
     else:
         try:
             user = User.get(User.username == username)
@@ -173,7 +173,7 @@ def admin_recent_counts(username=None):
             return redirect(url_for('homepage'))
         else:
             count_list = ProductCount.select().where(
-                ProductCount.counted_by == user).limit(50)
+                ProductCount.counted_by == user).limit(100)
     enumerators = User.select()
     return render_template('admin_recent_counts.html', enumerators=enumerators,
         count_list=count_list, username=username)
