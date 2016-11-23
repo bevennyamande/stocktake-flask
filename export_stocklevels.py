@@ -8,10 +8,7 @@ from models import *
 ProductTotal = {}
 current_item = {}
 
-# create totals table & fill with product data
-print('\n\nCreate table to store totals......')
-#database.drop_table(ProductTotal, fail_silently=True)
-#database.create_tables([ProductTotal, ])
+# create Product Total List & fill with product data
 print('\n\nAdd individual products to table......')
 for item in Product.select():
     ProductTotal[item.code] = {}

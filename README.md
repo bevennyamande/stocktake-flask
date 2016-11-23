@@ -23,10 +23,18 @@ The easiest way to install them is to run the following command in  app director
 	pip install -r requirements.txt
 	
 	
-Deployment
-This application has been created with the aim of setting up a temporary interface to record figures for stock take processes
-Add additional notes about how to deploy this on a live system
+Deployment & 
+This application has been created with the aim of setting up a temporary web interface to record figures during a stocktake. It will 
+run using the internal WSGI 
 
+Usage
+
+
+python models.py
+python add_users.py
+python add_products.py
+python run.py
+python export_stocklevels.py
 
 Built With
 
