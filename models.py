@@ -63,6 +63,7 @@ class ProductCount(BaseModel):
         order_by = ('created',)
 
 
+
 # simple utility function to create database and fill it with blanktables
 def create_tables():
     database.connect()
