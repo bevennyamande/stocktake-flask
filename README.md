@@ -49,14 +49,14 @@ Open products.csv and add the products that are found in stock. If you have an a
 details. The first column contains the product code. The second column contains the product name. The third column contains the price of the
 item. This is for reference purposes. After saving the  file import the products into the database by issuing the following command:
 
-python add_products.py
+	python add_products.py
 
 ### Step 4:
 Connect the computer to a router or if you have the necessary software you can turn it into a wireless access point. 
 Find the IP address of the computer on the network. You can refer to this [article](https://www.dowling.edu/mydowling/tech/ipaddress.html) or google it. 
 This will be used by enumerators to connect to the application through their device browsers. Now execute the the web server by typing the following command:
 
-python run.py
+	python run.py
 
 A webserver will be setup on your computer and can be accessed via "http://<ipaddress>:<port>/ the default port being 5000. Please
 ensure the port u select is not being used by another application. Users can login using their usernames and password. Once logged
@@ -70,7 +70,7 @@ in the database.
 ### Step 6:
 Export the results of the stock count into a CSV file named 'export_stocklevels' and will have a time stamp. issue the following command
 
-python export_stocklevels.py
+	python export_stocklevels.py
 
 You can now open the resulting file in Excel and do what you need to do with the data.
 
